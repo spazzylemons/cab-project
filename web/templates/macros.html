@@ -1,0 +1,37 @@
+{% macro municipality(name, county) %}{{ name }}, {{ county }} County{% endmacro %}
+{% macro municipality_year(name, county, year) %}{{ municipality(name, county) }}, {{ year }}{% endmacro %}
+
+{% macro year_table(table) %}
+  <table>
+    <thead>
+      <tr>
+        {% for v in table.header %}
+          <th>{{ v }}</th>
+        {% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in table.rows %}
+        <tr>
+          {% for v in row %}
+            <td>{{ v }}</td>
+          {% endfor %}
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endmacro %}
+
+{% macro back_to_homepage() %}
+<form action="/" method="GET">
+  <input type="submit" value="To Home Page" class="back_button"/>
+</form>
+{% endmacro %}
+
+
+{% macro back_to_municipality(mno) %}
+<form action="/municipality" method="POST">
+  <input type="hidden" name="mno" value="{{ mno }}"/>
+  <input type="submit" value="Back to All Municipality Data" class="back_button"/>
+</form>
+{% endmacro %}

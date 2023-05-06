@@ -1,0 +1,76 @@
+:root {
+  --fg: #cdf;
+  --bg: #225;
+}
+
+@media(prefers-color-scheme: light) {
+  :root {
+    --fg: #225;
+    --bg: #cdf;
+  }
+}
+
+body {
+  font-family: sans-serif;
+  margin: 32px;
+
+  color: var(--fg);
+  background-color: var(--bg);
+
+  text-align: center;
+  font-size: 16px;
+}
+
+table {
+  border-collapse: collapse;
+  margin: auto;
+}
+
+table, th, td {
+  border: 1px solid var(--fg);
+}
+
+input[type=submit] {
+  background-color: var(--fg);
+  color: var(--bg);
+  border: none;
+  padding: 6px 12px;
+  display: inline-block;
+  margin: 8px;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+input[type=submit]:hover {
+  cursor: pointer;
+}
+
+select {
+  background: none;
+  border: 1px solid var(--fg);
+  border-radius: 8px;
+  font-size: inherit;
+  color: inherit;
+}
+
+img {
+  padding-top: 32px;
+}
+
+
+.legend {
+  max-width: 100px;
+}
+
+.back_button {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  box-shadow: 0 0 4px #111;
+  border-radius: 8px;
+  z-index: 999999;
+}
+
+#map {
+  height: 10vh;
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>{% import 'macros.html' as macros %}
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Available data for {{ macros.municipality(name, county) }}</title>
+        <link rel="stylesheet" href="/static/style.css" />
+    </head>
+    <body>
+        <h1>Available data for {{ macros.municipality(name, county) }}</h1>
+
+        {{ macros.back_to_homepage() }}
+
+        <form action="/mot" method="POST">
+            <input type="hidden" name="mno" value="{{ mno }}" />
+            <input type="submit" value="Means of Transportation to Work" />
+        </form>
+
+        {% if have_vmt %}
+        <form action="/vmt" method="POST">
+            <input type="hidden" name="mno" value="{{ mno }}" />
+            <input type="submit" value="Emissions and Miles Traveled of On-Road Vehicles" />
+        </form>
+        {% endif %}
+
+        <form action="/ev" method="POST">
+            <input type="hidden" name="mno" value="{{ mno }}" />
+            <input type="submit" value="EV Ownership Data" />
+        </form>
+    </body>
+</html>
